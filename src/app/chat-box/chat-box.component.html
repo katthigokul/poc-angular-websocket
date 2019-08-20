@@ -1,0 +1,36 @@
+<div class="container">
+  <mat-form-field class="example-full-width">
+    <input matInput #userName placeholder="Username" value="Enter Name" (keydown.enter)="setUserName(userName.value)">
+  </mat-form-field>
+  <button mat-raised-button (click)="setUserName(userName.value)">Set Username</button>
+
+  <h2>
+    Messages Will appear here!!!
+  </h2>
+  <!-- Ref: https://stackoverflow.com/a/45367387 for scrolling to bottom -->
+  <div class="messages-box" #messageBox [scrollTop]="messageBox.scrollHeight">
+    <mat-list>
+      <!-- Append messages here -->
+      <ng-template appPlaceholder></ng-template>
+
+    </mat-list>
+  </div>
+  <!-- Message TextArea -->
+  <!-- <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile> -->
+  <div class="form-controls">
+    <form class="message-form">
+      <mat-form-field class="message-box-full-width">
+        <textarea matInput placeholder="Leave a Message" #messageTextArea
+          (keydown.enter)="sendMessage(messageTextArea.value); messageTextArea.value=''"></textarea>
+      </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="sendMessage(messageTextArea.value); messageTextArea.value=''">Send</button>
+  </div>
+  <!-- </mat-grid-tile> -->
+  <!-- Send Button -->
+  <!-- <mat-grid-tile> -->
+  <!-- </mat-grid-tile>
+  </mat-grid-list> -->
+
+</div>
